@@ -35,7 +35,7 @@ package main
 import (
     "fmt"
     "time"
-    "timeconv"
+    "github.com/maeck70/timeconv"
 )
 
 func main() {
