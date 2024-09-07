@@ -8,9 +8,11 @@ The `timeconv` package provides a convenient way to convert strings representing
 
 **1. Importing the Package:**
 
-```go
+```bash
 go get github.com/maeck70/timeconv
+```
 
+```go
 import "github.com/maeck70/timeconv"
 ```
 
