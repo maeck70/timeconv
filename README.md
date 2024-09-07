@@ -11,7 +11,7 @@ The `timeconv` package provides a convenient way to convert strings representing
 ```go
 go get github.com/maeck70/timeconv
 
-import "timeconv"
+import "github.com/maeck70/timeconv"
 ```
 
 **2. Converting Strings to Durations:**
