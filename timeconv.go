@@ -70,8 +70,20 @@ func StrToDuration(val string, defvalue time.Duration) (time.Duration, error) {
 	return 0, fmt.Errorf("invalid time: %s", val)
 }
 
+// MustStrToDuration is like StrToDuration but panics if the string is invalid
 func MustStrToDuration(val string, defvalue time.Duration) time.Duration {
 	result, err := StrToDuration(val, defvalue)
+	if err != nil {
+		panic(err)
+	}
+	return result
+}
+
+// MustStrToDuration2 is like StrToDuration with the following charasteristics:
+//   - Panics if the string is invalid
+//   - No default needed, defaults to 100ms if invalid
+func MustStrToDuration2(val string) time.Duration {
+	result, err := StrToDuration(val, 100*time.Millisecond)
 	if err != nil {
 		panic(err)
 	}

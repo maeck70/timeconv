@@ -74,5 +74,6 @@ The package supports the following string formats:
 - The package handles whitespace and case insensitivity.
 - If a unit is not provided, it is assumed to be milliseconds.
 - The `MustStrToDuration` function is useful for situations where errors should be handled by panicking.
+- The `MustStrToDuration2` function builds on MustStrToDuration and no default is needed (defaults to 100ms in case of error).
 
 By using the `timeconv` package, you can easily and reliably convert strings representing time durations into `time.Duration` values in your Go applications.
