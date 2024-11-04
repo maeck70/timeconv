@@ -27,6 +27,15 @@ import "github.com/maeck70/timeconv"
 * `MustStrToDuration(val string, defvalue time.Duration) time.Duration`:
   - Similar to `StrToDuration` but panics if the conversion fails instead of returning an error.
 
+
+* `DurationToStr(val time.Duration) string`:
+  - Converts a time.Duration value to a shorter string. For instance:
+    - time.Duration(90 * time.Second) = 90s
+    - time.Duration(60 * time.Second) = 1m
+    - time.Duration(2 * time.Millisecond) = 2ms
+    - time.Duration(1500 * time.Millisecond) = 1500ms
+
+
 ### Examples
 
 ```go
