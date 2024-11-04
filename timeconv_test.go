@@ -53,3 +53,29 @@ func TestStrToMilisec(t *testing.T) {
 	}
 
 }
+func TestDurationToStr(t *testing.T) {
+	tests := []struct {
+		input    time.Duration
+		expected string
+	}{
+		{time.Duration(0), "0"},
+		{time.Duration(1 * time.Hour), "1h"},
+		{time.Duration(2 * time.Hour), "2h"},
+		{time.Duration(1 * time.Minute), "1m"},
+		{time.Duration(2 * time.Minute), "2m"},
+		{time.Duration(1 * time.Second), "1s"},
+		{time.Duration(2 * time.Second), "2s"},
+		{time.Duration(90 * time.Second), "90s"},
+		{time.Duration(60 * time.Second), "1m"},
+		{time.Duration(1 * time.Millisecond), "1ms"},
+		{time.Duration(2 * time.Millisecond), "2ms"},
+		{time.Duration(1500 * time.Millisecond), "1500ms"},
+	}
+
+	for _, test := range tests {
+		result := DurationToStr(test.input)
+		if result != test.expected {
+			t.Errorf("Expected %s, got %s", test.expected, result)
+		}
+	}
+}

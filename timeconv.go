@@ -89,3 +89,34 @@ func MustStrToDuration2(val string) time.Duration {
 	}
 	return result
 }
+
+// DurationToStr converts a time.Duration to a string
+// Examples:
+// time.Duration(90 * time.Second) = 90s
+// time.Duration(60 * time.Second) = 1m
+// time.Duration(2 * time.Millisecond) = 2ms
+// time.Duration(1500 * time.Millisecond) = 1500ms
+
+func DurationToStr(val time.Duration) string {
+	if val == 0 {
+		return "0"
+	}
+
+	if val%time.Hour == 0 {
+		return fmt.Sprintf("%dh", val/time.Hour)
+	}
+
+	if val%time.Minute == 0 {
+		return fmt.Sprintf("%dm", val/time.Minute)
+	}
+
+	if val%time.Second == 0 {
+		return fmt.Sprintf("%ds", val/time.Second)
+	}
+
+	if val%time.Millisecond == 0 {
+		return fmt.Sprintf("%dms", val/time.Millisecond)
+	}
+
+	return fmt.Sprintf("%d", val)
+}
